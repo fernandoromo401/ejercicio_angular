@@ -58,10 +58,10 @@ _________
 + Paginación de la tabla
 + Ordenamiento de los campos de la tabla
 + Filtro de busqueda por cualquier campo de la tabla (menos los productos)
-+ Autenticacón y recuperacion de los datos de usuarios con **Auth0**
-+ Simulacion de **CRUD** de la tabla
-+ Implementacion de **Angular Material UI**
++ Autenticación y recuperación de los datos de usuarios con **Auth0**
++ Simulación de **CRUD** de la tabla
++ Implementación de **Angular Material UI**
 _________
 ## No desarrollado
-+ El metodo **update** no se uso `Formulario Reactivo` por ende no se puede agregar o quitar productos , encambio en el metodo **create**
++ En el metodo **update** no se uso un `Formulario Reactivo` por ende no se puede agregar o quitar productos , encambio en el metodo **create**
 + No se verificó el resultado final del `Modo Responsive` utilizando **Angular Material UI**
