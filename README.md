@@ -50,7 +50,7 @@ constructor(private _http: HttpClient) { }
 Metodo con petición `HTTP` de ejemplo
 ~~~
 getAll():Observable<any>{
-    return this._http.get<any>(this._url+'stats/' , {headers: this._headers})
+    return this._http.get<any>(this._url , {headers: this._headers})
 }
 ~~~
 _________
