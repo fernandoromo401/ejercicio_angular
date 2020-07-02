@@ -63,5 +63,5 @@ _________
 + Implementación de **Angular Material UI**
 _________
 ## No desarrollado
-+ En el metodo **update** no se uso un `Formulario Reactivo` por ende no se puede agregar o quitar productos , encambio en el metodo **create**
++ En el metodo **update** no se usó un `Formulario Reactivo` por ende no se puede agregar o quitar productos , en cambio en el metodo **create** si se usó
 + No se verificó el resultado final del `Modo Responsive` utilizando **Angular Material UI**
