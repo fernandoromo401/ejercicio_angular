@@ -1,0 +1,34 @@
+<!-----Sidenav---->
+<mat-sidenav-container>
+  <mat-sidenav color="primary" mode="side" [(opened)]="openedSide">
+    <div>
+      <button class="button-sidenav" (click)="openedSide = !openedSide" mat-mini-fab color="primary"
+        aria-label="Example icon button with a menu icon">
+        X
+      </button>
+    </div>
+    <!--Card user -->
+
+    <mat-card class="user-card" *ngIf="auth.userProfile$ | async as profile">
+      <mat-card-header>
+        <img mat-card-avatar src="{{profile.picture}}" class="example-header-image">
+        <mat-card-title>{{profile.name}}</mat-card-title>
+        <mat-card-subtitle>{{profile.email}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+    <!------------->
+  </mat-sidenav>
+  <!------------->
+  <mat-sidenav-content>
+    <mat-grid-list cols="" rowHeight="90vh">
+      <mat-grid-tile>
+        <!-- Table -->
+        <app-table></app-table>
+        <!----------->
+      </mat-grid-tile>
+    </mat-grid-list>
+    <button mat-icon-button color="primary" class="button-menu" *ngIf="!openedSide" (click)="openedSide = !openedSide">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>

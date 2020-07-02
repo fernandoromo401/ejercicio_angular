@@ -1,0 +1,32 @@
+<mat-grid-list cols="1" rowHeight="90vh">
+    <mat-grid-tile>
+
+        <mat-card class="width">
+            <h2>Order n° {{order.id}}</h2>
+            <h3>Please complete all fields of the form</h3>
+            <form>
+                <mat-form-field class="formOrder">
+                    <mat-label>Addressee</mat-label>
+                    <input #addressee matInput placeholder="Addressee" value="{{order.addressee}}">
+                </mat-form-field><br>
+                <mat-form-field class="formOrder">
+                    <mat-label>Email</mat-label>
+                    <input #mail matInput placeholder="example@example.com" value="{{order.mail}}">
+                </mat-form-field><br>
+                <mat-form-field class="formOrder">
+                    <input #date matInput value="{{order.date}}" type="date">
+                </mat-form-field>
+                <!--Products-->
+                <ul *ngFor="let item of order.products">
+                    <li>{{item.name}} || {{item.quantity}}</li>
+                </ul>
+                <!--Button-->
+                <div class="add-prod mt-5">
+                    <button mat-raised-button color="primary" (click)="updateOrder(addressee, date, mail)">Save
+                        order</button>
+                </div>
+
+            </form>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

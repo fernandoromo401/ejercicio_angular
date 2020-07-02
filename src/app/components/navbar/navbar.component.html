@@ -1,0 +1,9 @@
+<p>
+  <mat-toolbar color="primary">
+    <span *ngIf="auth.loggedIn">Profile</span>
+    <span *ngIf="!auth.loggedIn">Index</span>
+    <span class="example-spacer"></span>
+
+    <button mat-raised-button (click)="auth.logout()" *ngIf="auth.loggedIn">Logout</button>
+  </mat-toolbar>
+</p>

@@ -1,0 +1,27 @@
+mat-sidenav-container {
+  height: 90vh;
+  background-color: white;
+}
+mat-sidenav {
+  width: 350px;
+}
+.mat-sort-header-container {
+  align-items: center;
+}
+.button-menu {
+  position: fixed;
+  top: 70px;
+  left: 15px;
+}
+.button-sidenav{
+  float: right;
+}
+.table {
+  width: 80%;
+}
+.user-card{
+  margin-top: 65px;
+}
+app-table {
+  width: 90%;
+}

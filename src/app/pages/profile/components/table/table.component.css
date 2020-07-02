@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+}
+.td {
+  padding: 0 35px;
+}
+.product {
+  max-height: 80px;
+  overflow-y: scroll;
+}
+.example-full-width {
+  width: 300px;
+}
+.body {
+  max-height: 60vh !important;
+  min-height: 60vh !important;
+  overflow-y: scroll;
+}
+.search{
+  font-weight: bold;
+}

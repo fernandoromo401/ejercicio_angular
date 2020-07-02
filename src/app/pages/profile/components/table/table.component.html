@@ -1,0 +1,79 @@
+<!-- New Order button-->
+<button mat-raised-button color="primary" [routerLink]="['./new-order']">
+  New order
+</button>&nbsp;&nbsp;
+
+<!-- Input search-->
+<mat-form-field class="example-full-width">
+  <mat-label class="search">Search!</mat-label>
+  <input type="search" #value (keyup)="search(value)" matInput placeholder="Filter by any value in the table"
+    value="" />
+</mat-form-field>
+
+<!-- Table -->
+<div class="mat-elevation-z8">
+  <div class="body">
+    <table mat-table [dataSource]="dataSource" matSort matSortActive="id" matSortDirection="desc">
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID.</th>
+        <td class="td" mat-cell *matCellDef="let element">
+          {{ element.id }}
+        </td>
+      </ng-container>
+
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+        <td class="td" mat-cell *matCellDef="let element">
+          {{ element.date }}
+        </td>
+      </ng-container>
+
+      <!-- Addressee Column -->
+      <ng-container matColumnDef="addressee">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Adressee</th>
+        <td class="td" mat-cell *matCellDef="let element">
+          {{ element.addressee }}
+        </td>
+      </ng-container>
+
+      <!-- Mail Column -->
+      <ng-container matColumnDef="mail">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Mail</th>
+        <td class="td" mat-cell *matCellDef="let element">
+          {{ element.mail }}
+        </td>
+      </ng-container>
+      <!-- Products Column -->
+      <ng-container matColumnDef="products">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Products</th>
+        <td class="td" mat-cell *matCellDef="let element">
+          <button mat-stroked-button color="primary" [matMenuTriggerFor]="menu">Products</button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngFor="let product of element.products">quantity: {{ product.quantity }} |
+              <strong>name: {{ product.name }}</strong></button>
+          </mat-menu>
+
+        </td>
+      </ng-container>
+      <!-- Actions Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+        <td class="td" mat-cell *matCellDef="let element">
+          <button mat-raised-button [routerLink]="['./update-order', element.id]">
+            Update
+          </button>&nbsp;
+          <button #id mat-raised-button color="warn" (click)="deleteOrder(element.id)">
+            Delete
+          </button>
+        </td>
+      </ng-container>
+
+      <tr class="header" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <!-- Paginator -->
+  <mat-paginator [pageSizeOptions]="[8, 20, allOrders]" showFirstLastButtons></mat-paginator>
+</div>

@@ -1,0 +1,54 @@
+<mat-grid-list cols="1" rowHeight="90vh">
+    <mat-grid-tile>
+
+        <mat-card class="width">
+            <h2>New Order</h2>
+            <h3>Please complete all fields of the form</h3>
+            <form (submit)="saveOrder()" [formGroup]="orderForm">
+                <mat-form-field class="formOrder">
+                    <mat-label>Addressee</mat-label>
+                    <input matInput placeholder="Addressee" value="" formControlName="addressee">
+                </mat-form-field><br>
+                <mat-form-field class="formOrder">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="example@example.com" formControlName="mail">
+                </mat-form-field><br>
+                <mat-form-field class="formOrder">
+                    <input matInput value="" type="date" formControlName="date">
+                </mat-form-field>
+
+
+
+                <div class="add-prod">
+                    <a mat-stroked-button (click)="addProduct()">Add Product</a>
+                </div>
+                <div class="product-container">
+                    <div formArrayName="products" *ngFor="let product of products.controls; let i = index">
+                        <div [formGroupName]="i">
+                            <div class="form-group row">
+                                <mat-form-field>
+                                    <mat-label [attr.for]="'name' + i">Products</mat-label>
+                                    <input matInput placeholder="Name" [attr.id]="'name' + i" formControlName="name">
+                                </mat-form-field>
+                                <mat-form-field>
+                                    <mat-label [attr.for]="'quantity' + i">Quantity</mat-label>
+                                    <input matInput placeholder="Quantity" [attr.id]="'quantity' + i"
+                                        formControlName="quantity">
+                                </mat-form-field>
+                                <div class="add-prod">
+                                    <button mat-button color="warn" (click)="removeProduct(i)">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-prod mt-5">
+                    <button mat-raised-button class="btn btn-default" (click)="refresh()">Refresh</button>&nbsp;
+                    <button mat-raised-button color="primary">Save order</button>
+                </div>
+
+
+            </form>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
